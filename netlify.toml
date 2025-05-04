@@ -1,0 +1,21 @@
+# Configuração global do Netlify
+[build]
+  # Diretório a ser publicado (deploy)
+  publish = "dist"
+  # Comando para construir seu site
+  command = "npm run build"
+
+# Redirecionamentos e configuração do rewrites de URL
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Configuração de funções serverless
+[functions]
+  directory = "netlify/functions"
